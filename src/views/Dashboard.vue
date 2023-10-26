@@ -38,7 +38,7 @@
         try {
           const response = await UsuarioService.login(this.usuario, this.contrasena);
           console.log('Respuesta del servidor:', response);
-          this.$router.push({ name: 'listadetareas', params: { id: response } });
+          this.$router.push({ name: 'listadepelis', query: { id: response.id } });
         } catch (error) {
           console.error('Error en el inicio de sesión:', error);
           // Mostrar el mensaje de error

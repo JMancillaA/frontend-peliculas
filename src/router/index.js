@@ -29,9 +29,9 @@ const router = createRouter({
                     component: () => import('@/views/uikit/FloatLabel.vue')
                 },
                 {
-                    path: '/Listadetareas/:id',
-                    name: 'listadetareas',
-                    component: () => import('@/views/Listadetareas.vue'),
+                    path: '/Listadepelis',
+                    name: 'listadepelis',
+                    component: () => import('@/views/Listadepelis.vue'),
                     props: true,
                 },
                 {
