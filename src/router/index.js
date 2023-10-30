@@ -14,6 +14,16 @@ const router = createRouter({
                     component: () => import('@/views/Dashboard.vue')
                 },
                 {
+                    path: '/login',
+                    name: 'login',
+                    component: () => import('@/views/Login.vue')
+                },
+                {
+                    path: '/listadepelis',
+                    name: 'listadepelis',
+                    component: () => import('@/views/Listadepelis.vue')
+                },
+                {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
                     component: () => import('@/views/uikit/FormLayout.vue')
@@ -27,18 +37,6 @@ const router = createRouter({
                     path: '/uikit/floatlabel',
                     name: 'floatlabel',
                     component: () => import('@/views/uikit/FloatLabel.vue')
-                },
-                {
-                    path: '/Listadepelis',
-                    name: 'listadepelis',
-                    component: () => import('@/views/Listadepelis.vue'),
-                    props: true,
-                },
-                {
-                    path: '/Etiquetas/:id',
-                    name: 'etiquetas',
-                    component: () => import('@/views/Etiquetas.vue'),
-                    props: true,
                 },
                 {
                     path: '/uikit/invalidstate',
@@ -56,9 +54,9 @@ const router = createRouter({
                     component: () => import('@/views/uikit/Table.vue')
                 },
                 {
-                    path: '/uikit/Listadetareas',
-                    name: 'Listadetareas',
-                    component: () => import('@/views/uikit/Listadetareas.vue')
+                    path: '/uikit/list',
+                    name: 'list',
+                    component: () => import('@/views/uikit/List.vue')
                 },
                 {
                     path: '/uikit/tree',
@@ -164,12 +162,6 @@ const router = createRouter({
             path: '/pages/notfound',
             name: 'notfound',
             component: () => import('@/views/pages/NotFound.vue')
-        },
-
-        {
-            path: '/auth/login',
-            name: 'login',
-            component: () => import('@/views/pages/auth/Login.vue')
         },
         {
             path: '/auth/access',

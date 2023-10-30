@@ -11,3 +11,5 @@ export const getPopularMovies = () => {
       return [];
     });
 };
+
+

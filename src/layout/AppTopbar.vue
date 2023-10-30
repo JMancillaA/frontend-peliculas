@@ -26,6 +26,10 @@ const onTopBarMenuButton = () => {
 };
 const onSettingsClick = () => {
     topbarMenuActive.value = false;
+    router.push('/documentation');
+};
+const cerrarSesion=()=>{
+    localStorage.clear();
     router.push('/');
 };
 const topbarMenuClasses = computed(() => {
@@ -59,35 +63,30 @@ const isOutsideClicked = (event) => {
     return !(sidebarEl.isSameNode(event.target) || sidebarEl.contains(event.target) || topbarEl.isSameNode(event.target) || topbarEl.contains(event.target));
 };
 </script>
-<style lang="scss" scoped>
-.layout-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .layout-topbar-buttons {
-    display: flex;
-    gap: 16px;
-  }
-}
-</style>
 
 <template>
     <div class="layout-topbar">
-    <router-link to="/" class="layout-topbar-logo">
-        <img :src="logoUrl" alt="logo" />
-        <span>SAKAI</span>
-    </router-link>
-
-    <div class="layout-topbar-buttons">
-
-        <button @click="onSettingsClick()" class="p-link layout-topbar-button">
-            <i class="p-button-icon pi pi-sign-out"></i>
-            <span>Salir</span>
+        <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
+            <i class="pi pi-bars"></i>
         </button>
-    </div>
-</div>
+        <router-link to="/" class="layout-topbar-logo">
+            <img :src="logoUrl" alt="logo" />
+            <span>SAKAI</span>
+        </router-link>
 
+        
+
+        <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
+            <i class="pi pi-ellipsis-v"></i>
+        </button>
+
+        <div class="layout-topbar-menu" :class="topbarMenuClasses">
+            <button @click="cerrarSesion()" class="p-link layout-topbar-button">
+                <i class="pi pi-fw pi-sign-out"></i>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped></style>
