@@ -1,17 +1,17 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
-import { getPopularMovies } from '@/service/MovieService';
+import { getTopRatedMovies } from '@/service/MovieService';
 
 const movies = ref([]);
 
 onMounted(async () => {
   try {
-    const popularMovies = await getPopularMovies();
-    movies.value = popularMovies;
-    genres.value = [...new Set(popularMovies.flatMap(movie => movie.genre_ids))];
-    years.value = [...new Set(popularMovies.map(movie => movie.release_date.split('-')[0]))];
+    const Movies = await getTopRatedMovies();
+    movies.value = Movies;
+    genres.value = [...new Set(Movies.flatMap(movie => movie.genre_ids))];
+    years.value = [...new Set(Movies.map(movie => movie.release_date.split('-')[0]))];
   } catch (error) {
-    console.error('Error al obtener las películas populares', error);
+    console.error('Error al obtener las películas', error);
   }
 });
 
@@ -62,7 +62,7 @@ const getGenreName = (genreId) => {
 <template>
     <div>
       <h1 class="card-header">WILL SEE</h1>
-      <h2>Popular Movies</h2>
+      <h2>Top Rated Movies</h2>
       <div class="filters">
         <label for="genreSelect">Selecciona un Género:</label>
         <select id="genreSelect" v-model="selectedGenre">

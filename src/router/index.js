@@ -24,6 +24,27 @@ const router = createRouter({
                     component: () => import('@/views/Listadepelis.vue')
                 },
                 {
+                    path: '/popular',
+                    name: 'popular',
+                    component: () => import('@/views/Popular.vue')
+                },
+                {
+                    path: '/best',
+                    name: 'best',
+                    component: () => import('@/views/Best.vue')
+                },
+                {
+                    path: '/now',
+                    name: 'now',
+                    component: () => import('@/views/Now.vue')
+                },
+                {
+                    path: '/peli/:id',
+                    name: 'peli',
+                    component: () => import('@/views/Pelicula.vue'),
+                    props: true,
+                },
+                {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
                     component: () => import('@/views/uikit/FormLayout.vue')

@@ -7,7 +7,6 @@ const model = ref([
     {
         label: 'Cuenta',
         items: [
-            { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
             { label: 'Sign up', icon: 'pi pi-fw pi-id-card', to: '/' },
             { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
             { label: 'Cuenta', icon: 'pi pi-fw pi-user', to: '/' },
@@ -16,11 +15,16 @@ const model = ref([
     {
         label: 'Películas',
         items: [
-            { label: 'Populares', icon: 'pi pi-fw pi-chart-bar', to: '/' },
-            { label: 'Estrenos', icon: 'pi pi-fw pi-star', to: '/' },
-            { label: 'Mejor calificados', icon: 'pi pi-fw pi-thumbs-up', to: '/' },
+            { label: 'Popular', icon: 'pi pi-fw pi-chart-bar', to: '/popular' },
+            { label: 'Playing now', icon: 'pi pi-fw pi-star', to: '/now' },
+            { label: 'Top Rated', icon: 'pi pi-fw pi-thumbs-up', to: '/best' },
             { label: 'Recomendaciones', icon: 'pi pi-fw pi-step-forward', to: '/listadepelis' },
             { label: 'Tus vistos', icon: 'pi pi-fw pi-check-circle', to: '/listadepelis' },
+        ]
+    },
+    {
+        label: 'Pruebas',
+        items: [
             { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
             { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },   
             { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
@@ -39,27 +43,6 @@ const model = ref([
             { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
         ]
     },
-    {
-        label: 'Get Started',
-        items: [
-            {
-                label: 'Documentation',
-                icon: 'pi pi-fw pi-question',
-                to: '/documentation'
-            },
-            {
-                label: 'View Source',
-                icon: 'pi pi-fw pi-search',
-                url: 'https://github.com/primefaces/sakai-vue',
-                target: '_blank'
-            },
-            {
-                label: 'Nuxt Version',
-                url: 'https://github.com/primefaces/sakai-nuxt',
-                icon: 'pi pi-fw pi-star'
-            }
-        ]
-    }
 ]);
 </script>
 
