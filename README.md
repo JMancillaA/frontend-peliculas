@@ -10,6 +10,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 npm install axios
 npm install sweetalert2
+npm install @auth0/auth0-vue
 
 ```
 

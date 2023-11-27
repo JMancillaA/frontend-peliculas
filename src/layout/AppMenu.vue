@@ -9,7 +9,7 @@ const model = ref([
         items: [
             { label: 'Sign up', icon: 'pi pi-fw pi-id-card', to: '/' },
             { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
-            { label: 'Cuenta', icon: 'pi pi-fw pi-user', to: '/' },
+            { label: 'Cuenta', icon: 'pi pi-fw pi-user', to: '/user' },
         ]
     },
     {

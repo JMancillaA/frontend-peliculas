@@ -31,6 +31,7 @@ const onSettingsClick = () => {
 const cerrarSesion=()=>{
     localStorage.clear();
     router.push('/');
+    this.$auth0.logout({ logoutParams: { returnTo: window.location.origin } });
 };
 const topbarMenuClasses = computed(() => {
     return {
