@@ -28,11 +28,7 @@ const onSettingsClick = () => {
     topbarMenuActive.value = false;
     router.push('/documentation');
 };
-const cerrarSesion=()=>{
-    localStorage.clear();
-    router.push('/');
-    this.$auth0.logout({ logoutParams: { returnTo: window.location.origin } });
-};
+
 const topbarMenuClasses = computed(() => {
     return {
         'layout-topbar-menu-mobile-active': topbarMenuActive.value
@@ -71,8 +67,7 @@ const isOutsideClicked = (event) => {
             <i class="pi pi-bars"></i>
         </button>
         <router-link to="/" class="layout-topbar-logo">
-            <img :src="logoUrl" alt="logo" />
-            <span>SAKAI</span>
+            <span>WILL SEE</span>
         </router-link>
 
         
@@ -80,13 +75,6 @@ const isOutsideClicked = (event) => {
         <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
             <i class="pi pi-ellipsis-v"></i>
         </button>
-
-        <div class="layout-topbar-menu" :class="topbarMenuClasses">
-            <button @click="cerrarSesion()" class="p-link layout-topbar-button">
-                <i class="pi pi-fw pi-sign-out"></i>
-                <span>Cerrar Sesión</span>
-            </button>
-        </div>
     </div>
 </template>
 

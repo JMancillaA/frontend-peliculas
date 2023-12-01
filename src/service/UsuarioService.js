@@ -22,11 +22,14 @@ export default class UsuarioService {
     }
   }
 
-  static async register(usuario, contrasena) {
+  static async register(nombre, contrasena, email, pais, fechaNacimiento) {
     try {
       const response = await axios.post(`${BASE_URL}/api/v1/register`, {
-        usuario: usuario,
+        nombre: nombre,
         contra: contrasena,
+        email: email,
+        pais: pais,
+        fechaNacimiento: fechaNacimiento,
       });
       return response.data; // Puedes manejar la respuesta según tu necesidad
     } catch (error) {
@@ -34,4 +37,5 @@ export default class UsuarioService {
       throw error;
     }
   }
+  
 }

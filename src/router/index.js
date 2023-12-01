@@ -10,8 +10,13 @@ const router = createRouter({
             children: [
                 {
                     path: '/',
-                    name: 'dashboard',
-                    component: () => import('@/views/Dashboard.vue')
+                    name: 'popular',
+                    component: () => import('@/views/Popular.vue')
+                },
+                {
+                    path: '/signin',
+                    name: 'signin',
+                    component: () => import('@/views/SignIn.vue')
                 },
                 {
                     path: '/login',
@@ -27,11 +32,6 @@ const router = createRouter({
                     path: '/listadepelis',
                     name: 'listadepelis',
                     component: () => import('@/views/Listadepelis.vue')
-                },
-                {
-                    path: '/popular',
-                    name: 'popular',
-                    component: () => import('@/views/Popular.vue')
                 },
                 {
                     path: '/best',

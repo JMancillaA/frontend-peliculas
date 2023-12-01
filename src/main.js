@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { createAuth0 } from '@auth0/auth0-vue';
+import { getApiKey } from '@/service/OpenaiService';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -104,7 +105,13 @@ import BlockViewer from '@/components/BlockViewer.vue';
 
 import '@/assets/styles.scss';
 
+import OpenAI from "openai";
 
+const openai = new OpenAI({
+  organization: 'org-1mnWHJOESWMiZQrjiQ4I1z3D',
+  apiKey:getApiKey(),
+  dangerouslyAllowBrowser:true,
+});
 const app = createApp(App);
 
 app.use(

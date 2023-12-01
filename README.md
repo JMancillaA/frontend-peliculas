@@ -11,7 +11,7 @@ npm install
 npm install axios
 npm install sweetalert2
 npm install @auth0/auth0-vue
-
+npm install openai@^4.0.0
 ```
 
 ### Compile and Hot-Reload for Development

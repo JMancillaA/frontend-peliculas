@@ -7,7 +7,7 @@ const model = ref([
     {
         label: 'Cuenta',
         items: [
-            { label: 'Sign up', icon: 'pi pi-fw pi-id-card', to: '/' },
+            { label: 'Sign up', icon: 'pi pi-fw pi-id-card', to: '/signin' },
             { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
             { label: 'Cuenta', icon: 'pi pi-fw pi-user', to: '/user' },
         ]
@@ -15,7 +15,7 @@ const model = ref([
     {
         label: 'Películas',
         items: [
-            { label: 'Popular', icon: 'pi pi-fw pi-chart-bar', to: '/popular' },
+            { label: 'Popular', icon: 'pi pi-fw pi-chart-bar', to: '/' },
             { label: 'Playing now', icon: 'pi pi-fw pi-star', to: '/now' },
             { label: 'Top Rated', icon: 'pi pi-fw pi-thumbs-up', to: '/best' },
             { label: 'Recomendaciones', icon: 'pi pi-fw pi-step-forward', to: '/listadepelis' },
