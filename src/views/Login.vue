@@ -30,6 +30,7 @@
         user: this.$auth0.user,
         usuario: '',
         contrasena: '',
+        email:'',
         error: false,
       };
     },
@@ -47,6 +48,7 @@
       },
       async loginWithOkta() {
       try {
+        localStorage.setItem('nombre', 'Okta');
         await this.$auth0.loginWithRedirect();
 
         const user = await this.$auth0.getUser();

@@ -61,26 +61,15 @@ const getGenreName = (genreId) => {
 </script>
 <template>
     <div>
-      <h1 class="card-header">WILL SEE</h1>
-      <h2>Top Rated Movies</h2>
+      <h1 class="card-header">Top Rated Movies</h1>
       <div class="filters">
-        <label for="genreSelect">Selecciona un Género:</label>
-        <select id="genreSelect" v-model="selectedGenre">
-          <option value="">Todos los Géneros</option>
-          <option v-for="genreId in genres" :key="genreId" :value="genreId">{{ getGenreName(genreId) }}</option>
-        </select>
-  
-        <label for="yearSelect">Selecciona un Año:</label>
-        <select id="yearSelect" v-model="selectedYear">
-          <option value="">Todos los Años</option>
-          <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-        </select>
-  
-        <label for="sortSelect">Ordenar por Puntuación:</label>
-        <select id="sortSelect" v-model="sortAscending">
-          <option value="true">Ascendente</option>
-          <option value="false">Descendente</option>
-        </select>
+        <label for="genreSelect"> Select a Genre: </label>
+        <Dropdown v-model="selectedGenre" :options="genres.map(genreId => (getGenreName(genreId)))" placeholder="Genre" />
+        <label for="yearSelect"> Select a Year: </label>
+        <Dropdown v-model="selectedYear" :options="years"  placeholder="Year"/>
+        <label for="sortSelect"> Puntuación: </label>
+        <ToggleButton v-model="sortAscending" onLabel="Descendente" offLabel="Ascendente" :style="{ width: '10em' }"/><label>&nbsp</label>
+        <Button type="button" icon="pi pi-search" @click="searchMoviesHandler"/>
       </div>
   
       <div class="movie-grid">

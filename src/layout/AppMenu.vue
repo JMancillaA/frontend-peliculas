@@ -18,11 +18,11 @@ const model = ref([
             { label: 'Popular', icon: 'pi pi-fw pi-chart-bar', to: '/' },
             { label: 'Playing now', icon: 'pi pi-fw pi-star', to: '/now' },
             { label: 'Top Rated', icon: 'pi pi-fw pi-thumbs-up', to: '/best' },
-            { label: 'Recomendaciones', icon: 'pi pi-fw pi-step-forward', to: '/listadepelis' },
+            { label: 'Recomendaciones', icon: 'pi pi-fw pi-step-forward', to: '/recomendaciones' },
             { label: 'Tus vistos', icon: 'pi pi-fw pi-check-circle', to: '/listadepelis' },
         ]
     },
-    {
+    /*{
         label: 'Pruebas',
         items: [
             { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
@@ -42,7 +42,7 @@ const model = ref([
             { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
             { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
         ]
-    },
+    },*/
 ]);
 </script>
 

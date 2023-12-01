@@ -1,26 +1,3 @@
-<template>
-  <div>
-    <h1 class="card-header">Peliculas vistas</h1>
-    <div class="movie-grid">
-      <div v-for="(group, index) in groupedMovies" :key="index" class="movie-group">
-        <ul class="movie-list">
-          <li v-for="movie in group" :key="movie.id" class="movie-item">
-            <img :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" :alt="movie.title" class="movie-image" />
-            <div class="movie-details">
-              <h3>{{ movie.title }}</h3>
-              <p>{{ formatMovieDetails(movie.release_date, movie.vote_average) }}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style>
-  /* Estilos CSS aquí */
-</style>
-
 <script>
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -80,3 +57,4 @@ export default {
   },
 };
 </script>
+<template></template>

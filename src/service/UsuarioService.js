@@ -11,6 +11,7 @@ export default class UsuarioService {
       });
       const responseData = response.data.result;
       if (responseData) {
+        localStorage.setItem('email', responseData.email);
         // Si la respuesta tiene un resultado válido, devolvemos el ID del usuario
         return responseData.id;
       } else {

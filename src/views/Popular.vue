@@ -1,8 +1,21 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
-import { getPopularMovies } from '@/service/MovieService';
+import { getPopularMovies, searchMovies  } from '@/service/MovieService';
 
 const movies = ref([]);
+const searchMoviesHandler = () => {
+  if (selectedGenre&&selectedYear) {
+    searchMovies(selectedGenre, selectedYear, sortAscending)
+      .then(result => {
+        movies.value = result;
+      })
+      .catch(error => {
+        console.error('Error al realizar la búsqueda', error);
+      });
+  } else {
+    console.warn('Selecciona un género antes de realizar la búsqueda');
+  }
+};
 
 onMounted(async () => {
   try {
@@ -55,34 +68,21 @@ const getGenreName = (genreId) => {
     10752: 'War',
     37: 'Western'
 };
-
   return genreMap[genreId] || 'Desconocido';
 };
 </script>
 <template>
     <div>
-      <h1 class="card-header">WILL SEE</h1>
-      <h2>Popular Movies</h2>
+      <h1 class="card-header">Popular Movies</h1>
       <div class="filters">
-        <label for="genreSelect">Selecciona un Género:</label>
-        <select id="genreSelect" v-model="selectedGenre">
-          <option value="">Todos los Géneros</option>
-          <option v-for="genreId in genres" :key="genreId" :value="genreId">{{ getGenreName(genreId) }}</option>
-        </select>
-  
-        <label for="yearSelect">Selecciona un Año:</label>
-        <select id="yearSelect" v-model="selectedYear">
-          <option value="">Todos los Años</option>
-          <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-        </select>
-  
-        <label for="sortSelect">Ordenar por Puntuación:</label>
-        <select id="sortSelect" v-model="sortAscending">
-          <option value="true">Ascendente</option>
-          <option value="false">Descendente</option>
-        </select>
+        <label for="genreSelect"> Select a Genre: </label>
+        <Dropdown v-model="selectedGenre" :options="genres.map(genreId => (getGenreName(genreId)))" placeholder="Genre" />
+        <label for="yearSelect"> Select a Year: </label>
+        <Dropdown v-model="selectedYear" :options="years"  placeholder="Year"/>
+        <label for="sortSelect"> Puntuación: </label>
+        <ToggleButton v-model="sortAscending" onLabel="Descendente" offLabel="Ascendente" :style="{ width: '10em' }"/><label>&nbsp</label>
+        <Button type="button" icon="pi pi-search" @click="searchMoviesHandler"/>
       </div>
-  
       <div class="movie-grid">
         <div v-for="(group, index) in groupedMovies" :key="index" class="movie-group">
           <ul class="movie-list">

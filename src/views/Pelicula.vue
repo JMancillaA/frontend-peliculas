@@ -16,6 +16,33 @@
           <p><strong>Ingresos:</strong> ${{ movie.revenue.toLocaleString() }}</p>
           <p><strong>Fecha de lanzamiento:</strong> {{ movie.release_date }}</p>
           <p><strong>Compañías de producción:</strong> {{ getProductionCompaniesString(movie.production_companies) }}</p>
+          <h5>RadioButton</h5>
+                <div class="grid">
+                    <div class="col-12 md:col-4">
+                        <div class="field-radiobutton mb-0">
+                            <RadioButton id="option1" name="option" value="1" v-model="radioValue" />
+                            <label for="option1">Sin ver</label>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <div class="field-radiobutton mb-0">
+                            <RadioButton id="option2" name="option" value="2" v-model="radioValue" />
+                            <label for="option2">Por ver</label>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <div class="field-radiobutton mb-0">
+                            <RadioButton id="option3" name="option" value="3" v-model="radioValue" />
+                            <label for="option3">Vista</label>
+                        </div>
+                    </div>
+                    <div v-if="radioValue === '3'">
+                      <Rating v-model="ratingValue" />
+                    </div>
+                    <div v-if="radioValue === '3'||radioValue === '2'">
+                      <Button label="Guardar" class="mr-2 mb-2"></Button>
+                    </div>
+                </div>
         </div>
       </div>
     </div>
@@ -31,7 +58,8 @@
   
   // Utiliza `defineProps` para acceder a los props
   const props = defineProps(['id']);
-  
+  const radioValue = ref('1');
+  const ratingValue = ref(null);
   const movie = ref(null);
   
   onMounted(async () => {

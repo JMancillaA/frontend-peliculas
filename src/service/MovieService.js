@@ -36,3 +36,46 @@ export const getTopRatedMovies = () => {
       return [];
     });
 };
+export const getGenreCode = (genreName) => {
+  const genreMap = {
+    'Action': 28,
+    'Adventure': 12,
+    'Animation': 16,
+    'Comedy': 35,
+    'Crime': 80,
+    'Documentary': 99,
+    'Drama': 18,
+    'Family': 10751,
+    'Fantasy': 14,
+    'History': 36,
+    'Horror': 27,
+    'Music': 10402,
+    'Mystery': 9648,
+    'Romance': 10749,
+    'Science Fiction': 878,
+    'TV Movie': 10770,
+    'Thriller': 53,
+    'War': 10752,
+    'Western': 37
+  };
+
+  return genreMap[genreName] || null;
+};
+
+export const searchMovies = (genreId, year, ascending) => {
+  const genreName = getGenreCode(genreId);
+  // Construye la URL de la API según los parámetros proporcionados
+  let apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc`;
+  apiUrl += `&with_genres=${genreName}`;
+  apiUrl += `&primary_release_year=${year}`;
+  if (!ascending) {
+    apiUrl += '&sort_order=desc';
+  }
+
+  return axios.get(apiUrl)
+    .then(response => response.data.results)
+    .catch(error => {
+      console.error(error);
+      return [];
+    });
+};
